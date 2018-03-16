@@ -1,0 +1,11 @@
+pve-edk2-firmware (1.20180316-1) stable; urgency=medium
+
+  * updated to newer OVMF release (commit
+    d0976b9accedfd1f45fe2f81c59351ed17f34aa0)
+
+  * build from source instead of tracking binary rreleases (BLOBs)
+
+  * split from pve-qemu into separate package
+
+ -- Proxmox Support Team <support@proxmox.com>  Fri, 16 Mar 2018 12:10:02 +0200
+

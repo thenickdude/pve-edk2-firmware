@@ -1,0 +1,58 @@
+#!/usr/bin/make -f
+SHELL=/bin/bash
+
+# this is a simplified version from the upstream package
+
+DEB_BUILD_ARCH ?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
+
+EDK2_TOOLCHAIN = GCC5 # for GCC5 and newer, LTO enabled
+export $(EDK2_TOOLCHAIN)_AARCH64_PREFIX=aarch64-linux-gnu-
+
+ifeq ($(DEB_BUILD_ARCH),amd64)
+	EDK2_BUILD_ARCH=X64
+	EDK2_HOST_ARCH=X64
+endif
+ifeq ($(DEB_BUILD_ARCH),arm64)
+	EDK2_BUILD_ARCH=AARCH64
+endif
+
+# Clear variables used internally by the edk2 build system
+undefine WORKSPACE
+undefine ECP_SOURCE
+undefine EDK_SOURCE
+undefine EFI_SOURCE
+undefine EDK_TOOLS_PATH
+undefine CONF_PATH
+
+%:
+	dh $@
+
+override_dh_auto_build: build-ovmf
+
+setup-build:
+	cp -a debian/Logo.bmp MdeModulePkg/Logo/Logo.bmp
+	make -C BaseTools ARCH=$(EDK2_BUILD_ARCH)
+	# call this when building too, it modifies the shell environment
+	. ./edksetup.sh
+
+build-ovmf: EDK2_ARCH_DIR=X64
+build-ovmf: EDK2_HOST_ARCH=X64
+build-ovmf: setup-build
+	set -e; . ./edksetup.sh; \
+		OvmfPkg/build.sh \
+		    -b RELEASE  \
+		    -a $(EDK2_HOST_ARCH) \
+		    -t $(EDK2_TOOLCHAIN) \
+		    -DSECURE_BOOT_ENABLE=FALSE \
+		    -DFD_SIZE_2MB \
+		    -n $$(getconf _NPROCESSORS_ONLN)
+
+override_dh_auto_clean:
+	set -e; \
+	if [ -d BaseTools/Source/C/bin ]; then \
+		. ./edksetup.sh; build clean; \
+		make -C BaseTools clean; \
+	fi
+	rm -rf Conf/.cache Build .pc-post
+
+.PHONY: setup-build build-ovmf

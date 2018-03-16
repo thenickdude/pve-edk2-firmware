@@ -1,0 +1,2 @@
+Build/OvmfX64/RELEASE_*GCC*/FV/OVMF_CODE.fd	/usr/share/pve-edk2-firmware
+Build/OvmfX64/RELEASE_*GCC*/FV/OVMF_VARS.fd	/usr/share/pve-edk2-firmware

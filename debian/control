@@ -1,0 +1,20 @@
+Source: pve-edk2-firmware
+Section: misc
+Priority: extra
+Maintainer: Proxmox Support Team <support@proxmox.com>
+Build-Depends: debhelper (>= 9),
+               iasl,
+               nasm,
+               python,
+               uuid-dev,
+Homepage: http://www.tianocore.org
+Standards-Version: 3.9.8
+
+Package: pve-edk2-firmware
+Architecture: all
+Depends: ${misc:Depends},
+Description: edk2 based firmware modules for virtual machines
+ Contains OVMF. Open Virtual Machine Firmware (OVMF) is a build of EDK II for
+ virtual machines. It includes full support for UEFI, including Secure Boot,
+ allowing use of UEFI in place of a traditional BIOS in your VM.
+ Proxmox VE specific release with disabled secure boot.

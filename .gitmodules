@@ -1,0 +1,3 @@
+[submodule "edk2"]
+	path = edk2
+	url = ../mirror_edk2
