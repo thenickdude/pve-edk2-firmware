@@ -1,3 +1,13 @@
+pve-edk2-firmware (1.20180612-1) stable; urgency=medium
+
+  * update OVMF to commit 5a56c0493955cf55e7eef96dbba815cfbb067d7d
+
+  * fix issues with USB on passthrough
+
+  * faster boot with multiple disks
+
+ -- Proxmox Support Team <support@proxmox.com>  Tue, 12 Jun 2018 16:36:58 +0200
+
 pve-edk2-firmware (1.20180316-1) stable; urgency=medium
 
   * updated to newer OVMF release (commit
