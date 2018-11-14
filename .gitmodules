@@ -1,3 +1,4 @@
 [submodule "edk2"]
 	path = edk2
-	url = ../mirror_edk2
+	url = https://github.com/thenickdude/edk2.git
+	branch = macos-support-proxmox-6.0
