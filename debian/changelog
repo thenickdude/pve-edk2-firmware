@@ -1,3 +1,11 @@
+pve-edk2-firmware (1.20190312-1) stable; urgency=medium
+
+  * update sources to upstream edk2-stable201903 tag
+
+  * ship AAVMF to support EFI in ARM64 VMs
+
+ -- Proxmox Support Team <support@proxmox.com>  Tue, 12 Mar 2019 13:38:10 +0100
+
 pve-edk2-firmware (1.20181023-1) stable; urgency=medium
 
   * update sources to upstream commit
