@@ -25,7 +25,7 @@ ${DEB}: | submodule
 
 .PHONY: submodule
 submodule:
-	test -f "${SRCDIR}/Readme.md" || git submodule update --init
+	test -f "${SRCDIR}/Readme.md" || git submodule update --init --recursive
 
 .PHONY: update_modules
 update_modules: submodule
