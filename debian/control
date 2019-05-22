@@ -1,6 +1,6 @@
 Source: pve-edk2-firmware
 Section: misc
-Priority: extra
+Priority: optional
 Maintainer: Proxmox Support Team <support@proxmox.com>
 Build-Depends: bc,
                debhelper (>= 9),
