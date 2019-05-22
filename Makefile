@@ -8,7 +8,7 @@ BUILDDIR ?= ${PACKAGE}-${DEB_VERSION_UPSTREAM}
 GITVERSION:=$(shell git rev-parse HEAD)
 
 DEB=${PACKAGE}_${DEB_VERSION_UPSTREAM_REVISION}_all.deb
-#DSC=${PACKAGE}_${DEB_VERSION_UPSTREAM_REVISION}.dsc # FIXME: TODO
+DSC=${PACKAGE}_${DEB_VERSION_UPSTREAM_REVISION}.dsc
 
 all: ${DEB}
 	@echo ${DEB}
@@ -25,6 +25,12 @@ ${DEB}: ${BUILDDIR}
 	cd ${BUILDDIR}; dpkg-buildpackage -b -uc -us
 	lintian ${DEB}
 	@echo ${DEB}
+
+.PHONY: dsc
+dsc: ${DSC}
+${DSC}: ${BUILDDIR}
+	cd ${BUILDDIR}; dpkg-buildpackage -S -uc -us -d
+	lintian ${DSC}
 
 .PHONY: submodule
 submodule:
@@ -43,7 +49,7 @@ upload: ${DEB}
 .PHONY: distclean clean
 distclean: clean
 clean:
-	rm -rf *~ debian/*~ *.deb ${BUILDDIR} *.changes *.dsc *.buildinfo
+	rm -rf *~ debian/*~ *.deb ${PACKAGE}-*/ *.tar.gz *.changes *.dsc *.buildinfo
 
 .PHONY: dinstall
 dinstall: ${DEB}

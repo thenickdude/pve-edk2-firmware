@@ -1,0 +1,5 @@
+pve-edk2-firmware source: source-is-missing Vlv2TbltDevicePkg/GenBiosId
+pve-edk2-firmware source: source-is-missing BeagleBoardPkg/Debugger_scripts/rvi_dummy.axf
+pve-edk2-firmware source: source-is-missing ArmPkg/Library/GccLto/liblto-aarch64.a
+pve-edk2-firmware source: source-is-missing ArmPkg/Library/GccLto/liblto-arm.a
+pve-edk2-firmware source: source-contains-unsafe-symlink EmulatorPkg/Unix/Host/X11IncludeHack
