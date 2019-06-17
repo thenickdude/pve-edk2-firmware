@@ -1,3 +1,9 @@
+pve-edk2-firmware (2.20190614-1) pve; urgency=medium
+
+  * update sources to upstream edk2-stable201905 tag
+
+ -- Proxmox Support Team <support@proxmox.com>  Mon, 17 Jun 2019 15:55:47 +0200
+
 pve-edk2-firmware (2.20190312-1) pve; urgency=medium
 
   * bump for Debian Buster / PVE 6
