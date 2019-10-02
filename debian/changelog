@@ -1,3 +1,9 @@
+pve-edk2-firmware (2.20191002-1) pve; urgency=medium
+
+  * update sources to upstream edk2-stable201908 tag
+
+ -- Proxmox Support Team <support@proxmox.com>  Wed, 02 Oct 2019 17:28:25 +0200
+
 pve-edk2-firmware (2.20190614-1) pve; urgency=medium
 
   * update sources to upstream edk2-stable201905 tag
