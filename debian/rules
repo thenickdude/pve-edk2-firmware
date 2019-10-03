@@ -60,7 +60,7 @@ build-qemu-efi: setup-build
 	set -e; . ./edksetup.sh; \
 		build -a $(EDK2_HOST_ARCH) -p ShellPkg/ShellPkg.dsc \
 			-b RELEASE -t $(EDK2_TOOLCHAIN); \
-		cp -a Build/Shell/RELEASE_$(EDK2_TOOLCHAIN)/$(EDK2_HOST_ARCH)/Shell.efi \
+		cp -a Build/Shell/RELEASE_$(EDK2_TOOLCHAIN)/$(EDK2_HOST_ARCH)/Shell_7C04A583-9E3E-4f1c-AD65-E05268D0B4D1.efi \
 			ShellBinPkg/UefiShell/$(EDK2_ARCH_DIR)/Shell.efi; \
 		build -a $(EDK2_HOST_ARCH) -p FatPkg/FatPkg.dsc \
 			-m FatPkg/EnhancedFatDxe/Fat.inf \
